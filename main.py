@@ -1,22 +1,23 @@
 from tkinter import *
 
-def button_press(num):
 
+def button_press(num):
     global equation_text
 
     equation_text = equation_text + str(num)
 
     equation_label.set(equation_text)
 
-def keyBind(event):
 
+def keyBind(event):
     global equation_text
 
     equation_text = equation_text + event.char
 
     equation_label.set(equation_text)
-def equals():
 
+
+def equals():
     global equation_text
 
     try:
@@ -39,6 +40,7 @@ def equals():
 
         equation_text = ""
 
+
 def backspace():
     global equation_text
 
@@ -46,8 +48,9 @@ def backspace():
         equation_text = equation_text[:-1]
 
         equation_label.set(equation_text)
-def clear():
 
+
+def clear():
     global equation_text
 
     equation_label.set("")
@@ -63,7 +66,7 @@ equation_text = ""
 
 equation_label = StringVar()
 
-label = Label(window, textvariable=equation_label, font=('consolas',20), bg="white", width=24, height=2)
+label = Label(window, textvariable=equation_label, font=('consolas', 20), bg="white", width=24, height=2)
 label.pack()
 
 frame = Frame(window)
@@ -112,23 +115,23 @@ button0 = Button(frame, text=0, height=4, width=9, font=35,
 button0.grid(row=3, column=0)
 
 plus = Button(frame, text='+', height=4, width=9, font=35,
-                 command=lambda: button_press('+'))
+              command=lambda: button_press('+'))
 plus.grid(row=3, column=3)
 
 minus = Button(frame, text='-', height=4, width=9, font=35,
-                 command=lambda: button_press('-'))
+               command=lambda: button_press('-'))
 minus.grid(row=2, column=3)
 
 multiply = Button(frame, text='*', height=4, width=9, font=35,
-                 command=lambda: button_press('*'))
+                  command=lambda: button_press('*'))
 multiply.grid(row=1, column=3)
 
 divide = Button(frame, text='/', height=4, width=9, font=35,
-                 command=lambda: button_press('/'))
+                command=lambda: button_press('/'))
 divide.grid(row=0, column=3)
 
 equal = Button(frame, text='=', height=4, width=9, font=35,
-                 command=equals)
+               command=equals)
 equal.grid(row=3, column=2)
 
 decimal = Button(frame, text='.', height=4, width=9, font=35,
@@ -136,10 +139,10 @@ decimal = Button(frame, text='.', height=4, width=9, font=35,
 decimal.grid(row=3, column=1)
 
 clear = Button(window, text='clear', height=4, width=12, font=35,
-                 command=clear)
+               command=clear)
 clear.pack()
 
 backspace = Button(window, text='back', height=4, width=12, font=35,
-                 command=backspace)
+                   command=backspace)
 backspace.pack()
 window.mainloop()
